@@ -8,6 +8,8 @@ Produces an easy-to-browse session listing site based off a Google Spreadsheet. 
 // Google Developer Authentication 
 UKGC_PRIVATE_KEY
 UKGC_CLIENT_EMAIL
+// The URL of the spreadsheet to pull from
+UKGC_SPREADSHEET_URL
 // Optionally set the year to filter the sessions by, defaults to current year.
 UKGC_YEAR
 ```

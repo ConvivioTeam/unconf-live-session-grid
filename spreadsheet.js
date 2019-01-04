@@ -2,12 +2,21 @@ require('dotenv').config()
 var GoogleSpreadsheet = require('google-spreadsheet');
 var async = require('async');
 
-var doc = new GoogleSpreadsheet('1S6nemSPxSLrURGigaQZFKViWBoAhalpE2f0RtZ92Fpk');
+var doc;
 var sheet;
 var sessions;
 
+var getYear = function() {
+    return (process.env.UKGC_YEAR) ? process.env.UKGC_YEAR : (new Date()).getFullYear();
+ }
+
+ var getSpreadsheetKey = function() {
+    return process.env.UKGC_SPREADSHEET_URL.match(/[-\w]{25,}/);
+ }
+ 
 async.series([
     function setAuth(step) {
+      doc = new GoogleSpreadsheet(getSpreadsheetKey());
       var creds = {
         client_email: process.env.UKGC_CLIENT_EMAIL,
         private_key: process.env.UKGC_PRIVATE_KEY.replace(/\\n/g, '\n')
@@ -43,4 +52,8 @@ async.series([
 
  var getYear = function() {
     return (process.env.UKGC_YEAR) ? process.env.UKGC_YEAR : (new Date()).getFullYear();
+ }
+
+ var getSpreadsheetKey = function() {
+    return process.env.UKGC_SPREADSHEET_URL.match(/[-\w]{25,}/);
  }
