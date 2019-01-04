@@ -13,6 +13,7 @@ const spreadsheet = require('./lib/spreadsheet.js')
 
 // Config
 const app = express()
+app.use(express.static('assets'))
 groupBy.register(handlebars);
 const hbs = exphbs.create({
     handlebars: handlebars, 
