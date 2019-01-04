@@ -4,7 +4,7 @@
   "description": "A mobile friendly website generated from a session spreadsheet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "async": "^2.6.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
     "google-spreadsheet": "^2.0.6"
   }
 }
