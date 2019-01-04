@@ -1,8 +1,10 @@
 <h1>Sessions</h1>
-<ul>
-    {{#each sessions}}
-    <h2>{{title}}</h2>
-    <div class="body"><strong>Room:</strong> {{room}}</div>
+{{#group sessions by="time"}}
+	<h1>{{ value }}</h1>
+    <ul>
+	{{#each items}}
+        <h2>{{title}}</h2>
+        <div class="body"><strong>Room:</strong> {{room}}</div>
     {{/each}}
-</ul>
-			
+    </ul>
+{{/group}}

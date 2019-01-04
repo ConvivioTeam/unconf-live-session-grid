@@ -1,6 +1,8 @@
 // NPM dependencies
 const express = require('express')
-const exphbs  = require('express-handlebars');
+const exphbs  = require('express-handlebars')
+const handlebars = require('handlebars')
+const groupBy = require('handlebars-group-by')
 const dotenv = require('dotenv')
 
 // Run before other code to make sure variables from .env are available
@@ -11,8 +13,14 @@ const spreadsheet = require('./lib/spreadsheet.js')
 
 // Config
 const app = express()
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+groupBy.register(handlebars);
+const hbs = exphbs.create({
+    handlebars: handlebars, 
+    defaultLayout: 'main'
+})
+app.engine('handlebars', hbs.engine)
+app.set('view engine', 'handlebars')
+
 
 app.get('/', function (req, res) {
     let sessions;
