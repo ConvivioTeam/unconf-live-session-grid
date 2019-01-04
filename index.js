@@ -22,12 +22,20 @@ const hbs = exphbs.create({
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
-
+// Routes
 app.get('/', function (req, res) {
     let sessions;
     spreadsheet.getSessions( function(results) {
         sessions = results;
         res.render('session_listing', { sessions })
+    }); 
+});
+
+app.get('/partials/sessions', function (req, res) {
+    let sessions;
+    spreadsheet.getSessions( function(results) {
+        sessions = results;
+        res.render('session_listing', { sessions, layout: false })
     }); 
 });
 
