@@ -1,4 +1,7 @@
 <h1>Sessions</h1>
+{{#if error}}
+    <p>{{error}}</p>
+{{/if}}
 {{#group sessions by="time"}}
 <div class="timeslot">
 	<h2 class="timeslot__time">{{ value }}</h2>

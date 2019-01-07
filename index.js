@@ -24,25 +24,19 @@ app.set('view engine', 'handlebars')
 
 // Routes
 app.get('/', function (req, res) {
-    let sessions;
-    spreadsheet.getSessions( function(results) {
-        sessions = results;
-        res.render('session_listing', { sessions })
+    spreadsheet.getSessions( function(sessions, error) {
+        res.render('session_listing', { sessions, error })
     }); 
 });
 
 app.get('/partials/sessions', function (req, res) {
-    let sessions;
-    spreadsheet.getSessions( function(results) {
-        sessions = results;
-        res.render('session_listing', { sessions, layout: false })
+    spreadsheet.getSessions( function(sessions, error) {
+        res.render('session_listing', { sessions, error, layout: false })
     }); 
 });
 
-app.get('/sessions.json', function (req, res) {
-    let sessions;
-    spreadsheet.getSessions( function(results) {
-        sessions = results;
+app.get('/sessions.json', function (req, res, error) {
+    spreadsheet.getSessions( function(sessions, error) {
         res.send(sessions);
     }); 
 });
