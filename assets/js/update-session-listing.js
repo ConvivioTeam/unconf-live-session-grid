@@ -1,11 +1,11 @@
 (function(){
     
     var previousSessions;
-    var sessions = document.querySelectorAll('.container')[0].innerHTML;
+    var sessions = null;
     
     var init = function() {
         getSessions(function() {
-        if(previousSessions !== sessions) {
+        if(previousSessions !== sessions && previousSessions !== null) {
             console.log('Updating sessions');
             updateSessions()
         }
