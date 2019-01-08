@@ -12,6 +12,7 @@ dotenv.config()
 const spreadsheet = require('./lib/spreadsheet.js')
 
 // Config
+const port = process.env.PORT || 3000;
 const app = express()
 app.use(express.static('assets'))
 groupBy.register(handlebars);
@@ -48,6 +49,8 @@ app.get('/sessions.json', function (req, res, error) {
     }); 
 });
 
-app.listen(3000, function () {
-    console.log('Listening on port 3000');
+app.listen(port, (err) => {
+	if (err) {
+		throw err;
+	}
 });
