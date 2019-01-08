@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 
 app.get('/partials/sessions', function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
-        res.render('session_listing', { sessions, error, layout: false })
+        res.render('session_listing', { sessions, error, unconfName, logoUrl, layout: false })
     }); 
 });
 
