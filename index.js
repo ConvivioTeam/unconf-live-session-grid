@@ -25,7 +25,7 @@ app.set('view engine', 'handlebars')
 
 // Default .env variables
 var unconfName = process.env.UNCONF_NAME;
-if (unconfName === undefined) {
+if (!unconfName) {
     unconfName = 'Unconference name';
 }
 var logoUrl = process.env.LOGO_URL;

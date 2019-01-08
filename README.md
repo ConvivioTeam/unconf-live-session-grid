@@ -5,10 +5,10 @@ Produces an easy-to-browse session listing site based off a Google Spreadsheet. 
 ## .env settings
 
 ```
-// Google Developer Authentication 
+// Required: Google Developer Authentication settings 
 UKGC_PRIVATE_KEY
 UKGC_CLIENT_EMAIL
-// The URL of the spreadsheet to pull from
+// Required: The URL of the spreadsheet to pull from
 UKGC_SPREADSHEET_URL
 // The url of the logo image to use in the heading
 LOGO_URL
