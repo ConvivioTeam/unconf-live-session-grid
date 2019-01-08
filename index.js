@@ -1,4 +1,5 @@
 // NPM dependencies
+const helmet = require('helmet');
 const express = require('express')
 const exphbs  = require('express-handlebars')
 const handlebars = require('handlebars')
@@ -13,7 +14,10 @@ const spreadsheet = require('./lib/spreadsheet.js')
 
 // Config
 const port = process.env.PORT || 3000;
-const app = express()
+const app = express();
+app.use(helmet({ 
+    dnsPrefetchControl: { allow: true }
+}));
 app.use(express.static('assets'))
 groupBy.register(handlebars);
 const hbs = exphbs.create({
