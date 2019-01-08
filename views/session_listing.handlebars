@@ -1,4 +1,10 @@
-<h1>Sessions</h1>
+{{#if logoUrl}}
+<div class="mrs-ham" style="background-image: url( {{logoUrl}} );">
+{{/if}}
+<h1>Sessions for {{ unconfName }}</h1>
+{{#if logoUrl}}
+</div>
+{{/if}}
 {{#if error}}
     <p>{{error}}</p>
 {{/if}}

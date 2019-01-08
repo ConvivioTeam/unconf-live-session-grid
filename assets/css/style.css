@@ -675,12 +675,14 @@ html {
     font-size: 14px;
   }
   .mrs-ham {
-    background: url('https://ukgovcamp.govsite.com/wp-content/uploads/sites/6/2016/12/ukgovcamp.png') no-repeat;
+    /* The background image is set in .env */
+    background-repeat: no-repeat;
     background-size: cover;
     text-indent: -9999em;
     overflow: hidden;
     width: 160px;
     height: 56px;
+    margin-bottom: 1.45rem;
   }
   .convivio-link {
     color: #ec604b;

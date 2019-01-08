@@ -22,10 +22,17 @@ const hbs = exphbs.create({
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
+// Default .env variables
+var unconfName = process.env.UNCONF_NAME;
+if (unconfName === undefined) {
+    unconfName = 'Unconference name';
+}
+var logoUrl = process.env.LOGO_URL;
+
 // Routes
 app.get('/', function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
-        res.render('session_listing', { sessions, error })
+        res.render('session_listing', { sessions, error, unconfName, logoUrl })
     }); 
 });
 
