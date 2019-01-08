@@ -7,7 +7,10 @@
         getSessions(function() {
         if(previousSessions !== sessions && previousSessions !== null) {
             console.log('Updating sessions');
-            updateSessions()
+            var scrollPositions = getScrollPositions();
+            updateSessions(function() {
+                setScrollPositions(scrollPositions);
+            })
         }
         else {
             console.log('Sessions are the same');
@@ -37,13 +40,26 @@ var getSessions = function(callback) {
     request.send();
 }
 
-var updateSessions = function() {
-    document.querySelectorAll('.container')[0].innerHTML = sessions;
+var updateSessions = function(callback) {
+    document.querySelector('.container').innerHTML = sessions;
+    callback();
 }
 
-var htmlDecode = function(input){
-    var doc = new DOMParser().parseFromString(input, "text/html");
-  return doc.documentElement.textContent;
+var getScrollPositions = function() {
+    var sessionListingsElements = document.querySelectorAll('.timeslot__sessions');
+    var scrollPositions = [];
+    for(element of sessionListingsElements) {
+        scrollPositions.push(element.scrollLeft)
+    };
+    return scrollPositions;
+}
+
+var setScrollPositions = function(scrollPositions) {
+    var sessionListingsElements = document.querySelectorAll('.timeslot__sessions');
+    scrollPositions.forEach(function(position, index) {
+        var element = sessionListingsElements[index];
+        element.scrollLeft = position;
+    });
 }
 
 setInterval(init, 5000);
