@@ -16,6 +16,7 @@
     "google-spreadsheet": "^2.0.6",
     "handlebars-group-by": "^1.0.1",
     "handlebars-helpers": "^0.10.0",
-    "helmet": "^3.15.0"
+    "helmet": "^3.15.0",
+    "memory-cache": "^0.2.0"
   }
 }

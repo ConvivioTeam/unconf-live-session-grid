@@ -11,6 +11,7 @@ dotenv.config()
 
 // Local dependencies
 const spreadsheet = require('./lib/spreadsheet.js')
+const cache = require('./lib/cache.js');
 
 // Config
 const port = process.env.PORT || 3000;
@@ -36,27 +37,25 @@ if (!unconfName) {
 var logoUrl = process.env.LOGO_URL;
 
 // Routes
-app.get('/', function (req, res) {
+app.get('/', cache(5), function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
-        console.log(sessions[0]);
         res.render('session_listing', { sessions, error, unconfName, logoUrl })
     }); 
 });
 
-app.get('/partials/sessions', function (req, res) {
+app.get('/partials/sessions', cache(5), function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
         res.render('session_listing', { sessions, error, unconfName, logoUrl, layout: false })
     }); 
 });
 
-app.get('/sessions/:sessionID', function (req, res) {
+app.get('/sessions/:sessionID', cache(30), function (req, res) {
     spreadsheet.getSession(req.params.sessionID, function(session, error) {
-        console.log(session);
         res.render('full_session', { session, error, unconfName, logoUrl })
     }); 
 });
 
-app.get('/sessions.json', function (req, res, error) {
+app.get('/sessions.json', cache(5), function (req, res, error) {
     spreadsheet.getSessions( function(sessions, error) {
         res.send(sessions);
     }); 
