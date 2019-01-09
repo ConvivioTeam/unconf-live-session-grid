@@ -22,7 +22,8 @@ app.use(express.static('assets'))
 groupBy.register(handlebars);
 const hbs = exphbs.create({
     handlebars: handlebars, 
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    helpers: require('handlebars-helpers')() 
 })
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
@@ -37,6 +38,7 @@ var logoUrl = process.env.LOGO_URL;
 // Routes
 app.get('/', function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
+        console.log(sessions[0]);
         res.render('session_listing', { sessions, error, unconfName, logoUrl })
     }); 
 });
@@ -44,6 +46,13 @@ app.get('/', function (req, res) {
 app.get('/partials/sessions', function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
         res.render('session_listing', { sessions, error, unconfName, logoUrl, layout: false })
+    }); 
+});
+
+app.get('/sessions/:sessionID', function (req, res) {
+    spreadsheet.getSession(req.params.sessionID, function(session, error) {
+        console.log(session);
+        res.render('full_session', { session, error, unconfName, logoUrl })
     }); 
 });
 

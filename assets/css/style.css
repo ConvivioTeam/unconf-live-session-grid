@@ -674,6 +674,9 @@ html {
     font-family: sans-serif;
     font-size: 14px;
   }
+  .session__more-info {
+    float: right;
+  }
   .mrs-ham {
     /* The background image is set in .env */
     background-repeat: no-repeat;
@@ -688,4 +691,13 @@ html {
     color: #ec604b;
     float: right;
   }
-  
+  .full-session__key-info {
+    display: block;
+    background: #3d50a0;
+    color: #fff;
+    font-size: 20px;
+    padding: .2rem .5rem;
+    margin-bottom: 1rem;
+    font-family: sans-serif;
+    font-weight: bold;
+  }

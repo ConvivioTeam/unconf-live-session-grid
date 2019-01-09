@@ -15,7 +15,7 @@
         {{#each items}}
             <div class="session">
                 <h3 class="session__title">{{title}}</h3>
-                <div class="session__info"><strong>Room:</strong> {{room}}</div>
+                <div class="session__info"><strong>Room:</strong> {{room}} <a class="session__more-info" href="/sessions/{{encodeURI id}}">More info</a></div>
             </div>
         {{/each}}
     </div>
