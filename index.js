@@ -35,23 +35,26 @@ if (!unconfName) {
     unconfName = 'Unconference name';
 }
 var logoUrl = process.env.LOGO_URL;
+// Default title
+var metaTitle = 'Sessions for ' + unconfName;
 
 // Routes
 app.get('/', cache(5), function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
-        res.render('session_listing', { sessions, error, unconfName, logoUrl })
+        res.render('session_listing', { sessions, error, unconfName, logoUrl, metaTitle })
     }); 
 });
 
 app.get('/partials/sessions', cache(5), function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
-        res.render('session_listing', { sessions, error, unconfName, logoUrl, layout: false })
+        res.render('session_listing', { sessions, error, unconfName, logoUrl, metaTitle, layout: false })
     }); 
 });
 
 app.get('/sessions/:sessionID', cache(30), function (req, res) {
     spreadsheet.getSession(req.params.sessionID, function(session, error) {
-        res.render('full_session', { session, error, unconfName, logoUrl })
+        metaTitle = session.title + ' at ' + unconfName;
+        res.render('full_session', { session, error, unconfName, metaTitle, logoUrl })
     }); 
 });
 

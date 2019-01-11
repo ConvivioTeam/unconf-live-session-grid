@@ -8,17 +8,20 @@
 {{#if error}}
     <p>{{error}}</p>
 {{/if}}
+<main>
 {{#group sessions by="time"}}
-<div class="timeslot">
+<section class="timeslot">
 	<h2 class="timeslot__time" id="{{dashcase value}}">{{ value }}</h2>
     <div class="timeslot__sessions">
         {{#each items}}
-            <div class="session">
+            <article class="session">
                 <h3 class="session__title">{{title}}</h3>
-                <div class="session__info"><strong>Room:</strong> {{room}} 
-                <a class="session__more-info" aria-label="More information about session: {{title}}" href="/sessions/{{encodeURI id}}">More info</a></div>
-            </div>
+                <footer class="session__info"><strong>Room:</strong> {{room}} 
+                <a class="session__more-info" aria-label="More information about session: {{title}}" href="/sessions/{{encodeURI id}}">More info</a>
+                </footer>
+            </article>
         {{/each}}
     </div>
-</div>
+</section>
 {{/group}}
+</main>
