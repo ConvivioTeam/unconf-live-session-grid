@@ -21,24 +21,24 @@
 <strong>Led by:</strong>
 {{#if session.leader1 }}
 <a target="_blank" href="https://twitter.com/{{ session.leader1 }}">
-    {{ session.leader1 }}
+{{ session.leader1 ~}}
 </a>
-{{/if}}
+{{~/if~}}
 {{#if session.leader2 }}
-<a target="_blank" href="https://twitter.com/{{ session.leader2 }}">
-    , {{ session.leader2 }}
+, <a target="_blank" href="https://twitter.com/{{ session.leader2 }}">
+{{ session.leader2 ~}}
 </a>
-{{/if}}
+{{~/if~}}
 {{#if session.leader3 }}
-<a target="_blank" href="https://twitter.com/{{ session.leader3 }}">
-    , {{ session.leader3 }}
+, <a target="_blank" href="https://twitter.com/{{ session.leader3 }}">
+{{ session.leader3 ~}}
 </a>
-{{/if}}
+{{~/if~}}
 {{#if session.leader4 }}
-<a target="_blank" href="https://twitter.com/{{ session.leader4 }}">
-    , {{ session.leader4 }}
+, <a target="_blank" href="https://twitter.com/{{ session.leader4 }}">
+{{ session.leader4 ~}}
 </a>
-{{/if}}
+{{~/if~}}
 </p>
 
 {{#if session.sessionnoteslongurl }}
