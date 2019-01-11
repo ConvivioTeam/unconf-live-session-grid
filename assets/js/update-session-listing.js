@@ -4,7 +4,12 @@
     var sessions = null;
     
     var init = function() {
+
         getSessions(function() {
+        var sessionListingsElements = document.querySelectorAll('.timeslot__sessions');
+        if(sessionListingsElements.length === 0) {
+            return;
+        }
         if(previousSessions !== sessions && previousSessions !== null) {
             console.log('Updating sessions');
             var scrollPositions = getScrollPositions();

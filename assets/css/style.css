@@ -701,7 +701,7 @@ html {
     font-weight: bold;
   }
 .site-footer {
-  padding: 0 .5rem 1rem .5rem;
+  padding-bottom: 1rem;
   font-size: 14px;
   font-weight: bold;
   display: flex;
