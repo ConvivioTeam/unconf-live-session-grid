@@ -689,7 +689,6 @@ html {
   }
   .convivio-link {
     color: #ec604b;
-    float: right;
   }
   .full-session__key-info {
     display: block;
@@ -701,3 +700,10 @@ html {
     font-family: sans-serif;
     font-weight: bold;
   }
+.site-footer {
+  padding: 0 .5rem 1rem .5rem;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
