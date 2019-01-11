@@ -2,6 +2,9 @@
 
 Produces an easy-to-browse session listing site based off a Google Spreadsheet. Updates live when the spreadsheet is updated.
 
+**Demo site:** https://unconf-session-test.herokuapp.com/
+**Demo spreadsheet:** https://docs.google.com/spreadsheets/d/1uyeVc73aeKG8xgHvUzqR_WYbr3WPhsrk9gj746Mayac/edit?usp=drive_web&ouid=101644837907742352061
+
 ## Environment settings
 
 ```
