@@ -41,6 +41,7 @@ var metaTitle = 'Sessions for ' + unconfName;
 // Routes
 app.get('/', cache(5), function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
+        metaTitle = 'Sessions for ' + unconfName;
         res.render('session_listing', { sessions, error, unconfName, logoUrl, metaTitle })
     }); 
 });
