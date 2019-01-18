@@ -30,6 +30,10 @@ app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
 // Default .env variables
+var cacheTimeout = process.env.CACHE_TIMEOUT;
+if (!cacheTimeout) {
+    cacheTimeout = '5';
+}
 var unconfName = process.env.UNCONF_NAME;
 if (!unconfName) {
     unconfName = 'Unconference name';
@@ -39,27 +43,27 @@ var logoUrl = process.env.LOGO_URL;
 var metaTitle = 'Sessions for ' + unconfName;
 
 // Routes
-app.get('/', cache(5), function (req, res) {
+app.get('/', cache(cacheTimeout), function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
         metaTitle = 'Sessions for ' + unconfName;
         res.render('session_listing', { sessions, error, unconfName, logoUrl, metaTitle })
     }); 
 });
 
-app.get('/partials/sessions', cache(5), function (req, res) {
+app.get('/partials/sessions', cache(cacheTimeout), function (req, res) {
     spreadsheet.getSessions( function(sessions, error) {
         res.render('session_listing', { sessions, error, unconfName, logoUrl, metaTitle, layout: false })
     }); 
 });
 
-app.get('/sessions/:sessionID', cache(30), function (req, res) {
+app.get('/sessions/:sessionID', cache(cacheTimeout), function (req, res) {
     spreadsheet.getSession(req.params.sessionID, function(session, error) {
         metaTitle = session.title + ' at ' + unconfName;
         res.render('full_session', { session, error, unconfName, metaTitle, logoUrl })
     }); 
 });
 
-app.get('/sessions.json', cache(5), function (req, res, error) {
+app.get('/sessions.json', cache(cacheTimeout), function (req, res, error) {
     spreadsheet.getSessions( function(sessions, error) {
         res.send(sessions);
     }); 

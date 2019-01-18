@@ -16,6 +16,9 @@ UKGC_PRIVATE_KEY
 UKGC_CLIENT_EMAIL
 // Required: The URL of the spreadsheet to pull from
 UKGC_SPREADSHEET_URL
+// Option: The number of seconds to pull new session information from the google sheet
+// This is set to 5 seconds by default, increase this if you see the app struggling to serve requests in a timely fashion
+CACHE_TIMEOUT
 // The url of the logo image to use in the heading
 LOGO_URL
 // The name of the unconference for headings and meta tags
