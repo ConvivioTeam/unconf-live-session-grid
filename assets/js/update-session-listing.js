@@ -68,4 +68,5 @@ var setScrollPositions = function(scrollPositions) {
 }
 
 setInterval(init, 5000);
+init();
 })();
