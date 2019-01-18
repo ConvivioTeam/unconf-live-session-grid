@@ -1,6 +1,6 @@
 # Unconference live session grid
 
-Produces an easy-to-browse session listing site based off a Google Spreadsheet. Updates live when the spreadsheet is updated. [Made by Convivio](https://weareconvivio.com)
+Produces an easy-to-browse session listing site based off a Google Spreadsheet. Updates live when the spreadsheet is updated. [Made by Convivio](https://blog.weareconvivio.com/a-mobile-schedule-for-unconferences-cf78d73483b5)
 
 
 
