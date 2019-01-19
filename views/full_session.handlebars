@@ -45,10 +45,10 @@ Back to session listing
 {{~/if~}}
 </p>
 
-{{#if session.sessionnoteslongurl }}
+{{#if session.sessionnotes }}
 <p>
 <strong>Session notes:</strong>
-<a target="_blank" title="Session notes on Google Docs" href="{{ session.sessionnoteslongurl }}">{{ session.sessionnoteslongurl }}</a>
+<a target="_blank" title="Session notes on Google Docs" href="http://{{ session.sessionnotes }}">{{ session.sessionnotes }}</a>
 </p>
 {{/if}}
 

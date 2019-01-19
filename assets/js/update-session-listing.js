@@ -1,5 +1,5 @@
 (function(){
-    
+    "use strict";
     var previousSessions;
     var sessions = null;
     
@@ -53,9 +53,12 @@ var updateSessions = function(callback) {
 var getScrollPositions = function() {
     var sessionListingsElements = document.querySelectorAll('.timeslot__sessions');
     var scrollPositions = [];
-    for(element of sessionListingsElements) {
-        scrollPositions.push(element.scrollLeft)
-    };
+    sessionListingsElements.forEach(currentValue, currentIndex, listObj) {
+        scrollPositions.push(element.listObj);
+    } 
+    // for(var element of sessionListingsElements) {
+    //     scrollPositions.push(element.scrollLeft);
+    // };
     return scrollPositions;
 }
 
