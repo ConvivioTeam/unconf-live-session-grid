@@ -7,16 +7,20 @@ Back to session listing
 </div>
 {{/if}}
 </a>
+{{#if session.title}}
 <h1>{{ session.title }}</h1>
+{{/if}}
 {{#if error}}
     <p>{{error}}</p>
 {{/if}}
+{{#if session.time}}
 <div class="full-session__key-info">
     <strong>Time:</strong>
     {{ session.time }}
     <strong>| Room:</strong>
     {{ session.room }}
 </div>
+{{/if}}
 <p>
 <strong>Led by:</strong>
 {{#if session.leader1 }}

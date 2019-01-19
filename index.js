@@ -68,6 +68,10 @@ function start() {
 
     app.get('/sessions/:sessionID', function (req, res) {
         spreadsheet.getCachedSession(req.params.sessionID, function(session, error) {
+            if(session == null) {
+                res.status(404).send("That session can't be found. Head back to the <a href='/'>listing page</a> and try again.");
+                return;
+            }
             metaTitle = session.title + ' at ' + unconfName;
             res.render('full_session', { session, error, unconfName, metaTitle, logoUrl })
         }); 
