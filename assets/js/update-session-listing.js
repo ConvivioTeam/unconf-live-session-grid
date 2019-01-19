@@ -6,22 +6,22 @@
     var init = function() {
 
         getSessions(function() {
-        var sessionListingsElements = document.querySelectorAll('.timeslot__sessions');
-        if(sessionListingsElements.length === 0) {
-            return;
-        }
-        if(previousSessions !== sessions && previousSessions !== null) {
-            console.log('Updating sessions');
-            var scrollPositions = getScrollPositions();
-            updateSessions(function() {
-                setScrollPositions(scrollPositions);
-            })
-        }
-        else {
-            console.log('Sessions are the same');
-        }
-    });
-};
+            var sessionListingsElements = document.querySelectorAll('.timeslot__sessions');
+            if(sessionListingsElements.length === 0) {
+                return;
+            }
+            if(previousSessions !== sessions && previousSessions !== null) {
+                console.log('Updating sessions');
+                var scrollPositions = getScrollPositions();
+                updateSessions(function() {
+                    setScrollPositions(scrollPositions);
+                })
+            }
+            else {
+                console.log('Sessions are the same');
+            }
+        });
+    };
 
 var getSessions = function(callback) {
     var request = new XMLHttpRequest();

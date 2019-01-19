@@ -66,8 +66,8 @@ function start() {
         }); 
     });
 
-    app.get('/sessions/:sessionID', cache(cacheTimeout), function (req, res) {
-        spreadsheet.getSession(req.params.sessionID, function(session, error) {
+    app.get('/sessions/:sessionID', function (req, res) {
+        spreadsheet.getCachedSession(req.params.sessionID, function(session, error) {
             metaTitle = session.title + ' at ' + unconfName;
             res.render('full_session', { session, error, unconfName, metaTitle, logoUrl })
         }); 
