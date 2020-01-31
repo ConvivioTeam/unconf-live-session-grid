@@ -45,6 +45,12 @@ Back to session listing
 {{~/if~}}
 </p>
 
+{{#compare session.sessionnotes "==" "No notes"}}
+<p>
+<strong>Session notes:</strong>
+{{ session.sessionnotes }}
+</p>
+{{/compare}}
 {{#if session.sessionnotes }}
 <p>
 <strong>Session notes:</strong>
